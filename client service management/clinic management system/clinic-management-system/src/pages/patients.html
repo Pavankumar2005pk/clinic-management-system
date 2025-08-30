@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients - Clinic Management System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="top-nav">
+            <!-- Same navigation as dashboard.html -->
+        </nav>
+
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <!-- Same sidebar with patients active -->
+            </aside>
+
+            <main class="main-content">
+                <div class="page-header">
+                    <h2>Patient Records</h2>
+                    <button class="btn btn-primary" onclick="showNewPatientModal()">
+                        Add New Patient
+                    </button>
+                </div>
+
+                <div class="filter-card">
+                    <div class="filter-group">
+                        <input type="text" id="searchPatient" class="filter-input" placeholder="Search patients...">
+                        <select id="filterGender" class="filter-input">
+                            <option value="all">All Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <button onclick="applyFilters()" class="btn btn-secondary">Search</button>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th>Contact</th>
+                                    <th>Last Visit</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patientsList">
+                                <!-- Data will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Patient Modal -->
+    <div id="patientModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Patient</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="patientForm">
+                <!-- Form fields will be added dynamically -->
+            </form>
+        </div>
+    </div>
+
+    <div class="loading-overlay hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/patients.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* Tablet and smaller desktop */
+@media (max-width: 1280px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .dashboard-layout {
+        position: relative;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .app-header {
+        padding: 0 1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .app-header {
+        padding: 0 1rem;
+    }
+
+    .header-brand h1 {
+        display: none;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.625rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .sidebar,
+    .app-header {
+        display: none;
+    }
+
+    .main-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid var(--neutral-200);
+    }
+}

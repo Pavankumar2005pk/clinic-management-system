@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - Clinic Management System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Same nav and sidebar structure as dashboard.html -->
+        <nav class="top-nav">
+            <!-- ... same as dashboard.html ... -->
+        </nav>
+
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <!-- ... same as dashboard.html with appointments active ... -->
+            </aside>
+
+            <main class="main-content">
+                <div class="page-header">
+                    <h2>Appointments Management</h2>
+                    <button class="btn btn-primary" onclick="showNewAppointmentModal()">
+                        New Appointment
+                    </button>
+                </div>
+
+                <div class="filter-card">
+                    <div class="filter-group">
+                        <input type="date" id="filterDate" class="filter-input">
+                        <select id="filterStatus" class="filter-input">
+                            <option value="all">All Status</option>
+                            <option value="scheduled">Scheduled</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <button onclick="applyFilters()" class="btn btn-secondary">
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Patient Name</th>
+                                    <th>Doctor</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="appointmentsList">
+                                <!-- Data will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Appointment Modal -->
+    <div id="appointmentModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>New Appointment</h3>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="appointmentForm">
+                <!-- Form fields will be added dynamically -->
+            </form>
+        </div>
+    </div>
+
+    <div class="loading-overlay hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/appointments.js"></script>
+</body>
+</html>
